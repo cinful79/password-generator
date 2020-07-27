@@ -1,34 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-      </div>
-    </div>
-    <script src="./assets/css/.js/script.js"></script>
-  </body>
+<head>
+ <title>Password generator</title>
+ <meta charset="utf-8"> 
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- next line loads the MD5 hashing function -->
+ <script src="https://thecode.media/wp-content/uploads/2019/05/js-md5.js"></script>
+ <style type="text/css">
+/*Standard design */
+body{ text-align: center; margin: 10; font-family: Verdana, Arial, sans-serif; font-size: 16px;}
+input{ display: inline-block; 
+    margin: 20px auto; border: 2px solid #eee; 
+    padding: 10px 20px; 
+    font-family:Verdana, Arial, sans-serif; 
+    font-size: 16px;}
+</style>
+</head>
+
+<body>
+ <!-- page will be here -->
+<div class="container"  margin: auto;">
+ <h2 class="todo__caption">Password generator</h2>
+ <br>
+ <!-- interface begins -->
+ <input type="text" id="site_url" size="50" placeholder="Where do you need this password? Paste the address">
+ <br>
+ <input type="text" id="keyword" size="50" placeholder="Some key word here">
+ <br> <br>
+ <!-- Main button -->
+ <button style="font-size: 100%; padding:5px 10px 10px 10px" onclick="generate()">Generate password</button>
+ <p>Your password is:</p>
+ <div id = "pass_text" style="font-weight: bold"></div>  
+</div>
+ <script>
+// setting up variables
+var site, salt;
+var text, password;
+// The function to run all the useful code
+function generate(){
+    //Step 1
+site = document.getElementById('site_url').value;
+    //Step 2
+salt = document.getElementById('keyword').value;
+    //Step 3
+text = site + salt + 'Practicum Rules';
+    //Step 4
+password = md5(text);
+    //Step 5
+document.getElementById('pass_text').innerHTML=password;
+}
+</script>
+</body>
 </html>
