@@ -118,6 +118,43 @@ button[disabled] {
   overflow: hidden;
 }
 
+.box{
+  font-weight: 350;
+  margin: auto;
+  width: 9%;
+  
+  
+}
+
+.box p{
+  border: 1px solid black;
+  padding: 3px;
+  border-radius: 25px;
+  background-color: hsl(360, 91%, 36%);
+  font-size: 1em;
+  color: white;
+}
+
+
+/* large laptop */
+@media (max-width: 1440px){
+  .box{
+    width: 13%;
+  }
+}
+
+@media (max-width: 1024px){
+  .box{
+    width: 18%;
+  }
+}
+
+@media (max-width:768px){
+  .box{
+    width: 25%;
+  }
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -133,5 +170,32 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+
+  .box p{
+    font-size: .8rem;
+  }
+
+  @media (max-width: 425px){
+    .box{
+      display: block;
+      width: 38%;
+      margin: auto;
+    }
+    .box p{
+      font-size: .8rem;
+    }
+  }
+}
+
+@media (max-width: 375px){
+  .box{
+    width: 45%;
+  }
+}
+
+@media (max-width: 320px){
+  .box{
+    width: 52%;
   }
 }
